@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="bcg-img">
+        <div class="bcg-cover">
+            <div class="dashboard" id="dashboard">
+                <div class="header">
+                    <h1>My Library</h1>
+                    <button type="button" class="btn-add" onclick="openForm()">Add new book</button>
+                </div>
+                <div class="content">
+                   <table id="book-table">
+                       <tr>
+                           <th>Title</th>
+                           <th>Author</th>
+                           <th>Number of Pages</th>
+                           <th>Read</th>
+                           <th>Delete</th>
+                       </tr>
+                   </table>
+                   <div class="popupForm" id="popup">
+                       <form class="form-block" id="form-add">
+                            <h2>Add New Book</h2>
+                            <label for="title">Title</label>
+                            <input type="text" id="title"><br>
+                            <label for="author">Author</label>
+                            <input type="text" id="author"><br>
+                            <label for="pages">Number of Pages</label>
+                            <input type="number" id="pages" min="1"><br>
+                            <label for="read">Already read</label>
+                            <input type="checkbox" id="read"><br>     
+                            <input type="submit" value="Add Book"> 
+                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                            <!-- <button type="button" id="add" onclick="addBook()">Add</button>                      -->
+                       </form>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="app.js" charset="UTF-8"></script>
+</html>
