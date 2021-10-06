@@ -1,3 +1,5 @@
+//localStorage.clear();
+
 // object to store book information
 function Book(title, author, pages, read){
     this.title = title;
@@ -56,6 +58,14 @@ window.onclick = function (event) {
 
 //function to list books stored in local storage as a table
 function listBooks(){
+  console.log(localStorage);
+  let Library = JSON.parse(localStorage.getItem('lib'));
+  console.log(Library);
+  let x = !!(Library);
+  console.log(x);
+ 
+  if(x != false && Library != []){
+  
   let rows = document.getElementById('book-table').getElementsByTagName('tr');
   let rowCount = rows.length;
   if(rowCount > 1){
@@ -64,8 +74,7 @@ function listBooks(){
     }
   }
 
-  let Library = JSON.parse(localStorage.getItem('lib'));
-
+ 
   const table = document.getElementById('book-table');
   let row;
   let cell = [];
@@ -76,12 +85,14 @@ function listBooks(){
     row = table.insertRow(j+1);
       for(let i = 0; i < 5; i++){
         if(i === 4){
-          let btn = document.createElement('input');
+          /*let btn = document.createElement('input');
           btn.type = "button";
           btn.id = "del-btn";
           btn.value = Delete;
           btn.onclick = deleteRow(this);
-          
+          cell[i] = row.insertCell(i);td.appendChild(btn)*/
+          cell[i] = row.insertCell(i);
+          cell[i].innerHTML = '<input type="button" value="Delete" onclick="deleteRow(this)">';
         }
         else{
           cell[i] = row.insertCell(i);
@@ -90,6 +101,7 @@ function listBooks(){
           cell[i].innerHTML = val;
         }
       }
+  }
   }
 }
 
@@ -106,6 +118,9 @@ function addBook(){
         const obj = new Book(title,author,pages,read);
 
         let lib = JSON.parse(localStorage.getItem('lib'));
+        if(lib === null){
+          lib = [];
+        }
         lib.unshift(obj);
         localStorage.setItem('lib',JSON.stringify(lib));
 
@@ -118,9 +133,27 @@ function addBook(){
 }
 
 function deleteRow(r) {
-  var i = r.parentNode.parentNode.rowIndex;
-  document.getElementById("myTable").deleteRow(i);
+  let i = r.parentNode.parentNode.rowIndex;
+  console.log(i);
+  let lib = JSON.parse(localStorage.getItem('lib'));
+  console.log(typeof lib);
+  console.log(lib.length);
+  console.log(lib[i-1]);
+  console.log(lib);
+  delete lib[i-1];
+  lib = lib.filter(x => x !== null)
+  console.log(lib.length);
+  if(lib.length < 1) {localStorage.clear();
+    document.getElementById("book-table").deleteRow(1);}
+  else{
+  localStorage.setItem('lib',JSON.stringify(lib));
+  listBooks();
+  console.log(localStorage);
+  }
+
+
 }
 
 listBooks();
+
 addBook();
