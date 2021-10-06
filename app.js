@@ -9,6 +9,10 @@ function Book(title, author, pages, read){
     };*/
 }
 
+Book.prototype = function readStatus(toggle){
+  this.read = toggle;
+}
+
 // Open and close form to add a book
 function openForm() {
   document.getElementById("popup").style.display = "block";
@@ -71,10 +75,20 @@ function listBooks(){
   for(let j = 0; j < Library.length; j++){
     row = table.insertRow(j+1);
       for(let i = 0; i < 5; i++){
-        cell[i] = row.insertCell(i);
-        key = keys[i];
-        val = Library[j][key];
-        cell[i].innerHTML = val;
+        if(i === 4){
+          let btn = document.createElement('input');
+          btn.type = "button";
+          btn.id = "del-btn";
+          btn.value = Delete;
+          btn.onclick = deleteRow(this);
+          
+        }
+        else{
+          cell[i] = row.insertCell(i);
+          key = keys[i];
+          val = Library[j][key];
+          cell[i].innerHTML = val;
+        }
       }
   }
 }
@@ -101,6 +115,11 @@ function addBook(){
         listBooks();
         closeForm();
     });
+}
+
+function deleteRow(r) {
+  var i = r.parentNode.parentNode.rowIndex;
+  document.getElementById("myTable").deleteRow(i);
 }
 
 listBooks();
