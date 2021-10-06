@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rozha+One&family=Trirong:wght@100&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
@@ -17,13 +16,13 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .dashboard{
-    width: 80%;
+    width: 85%;
     height: 95%;
     overflow: hidden;
     box-shadow: -5px 5px 15px rgb(0, 0, 0),
@@ -35,19 +34,27 @@
     border-right: 3px solid rgba(97, 174, 207, 0.5);
     border-top: 2px solid rgba(32, 101, 128, 0.7);
     border-radius: 3px;
-    color: white;
+    color: rgba(255, 255, 255, 0.603);
     text-shadow: -2px -2px rgba(0, 0, 0, 0.4);
     padding: 20px;
-    font-family: Trirong;
+    font-family: 'Poppins';
     
 }
 .header{
-    outline: 2px solid black;
     display: flex;
     justify-content: space-around;
 }
+h1{
+    font-size: 2.6em;
+    font-weight: bolder;
+}
+.btn-add{
+    align-self: center;
+    height: 25px;
+    width: 120px;
+}
+
 .content{
-    outline: 2px solid black;
     width: 100%;
     height: auto;
 }
@@ -56,22 +63,47 @@ table{
 }
 th, td{
     width: 20%;
-    border: 2px solid black;
 }
 .popupForm{
     display: none;
         position: fixed;
-        left: 45%;
-        top: 5%;
-        /* transform: translate(-50%, 5%); */
-        border: 3px solid #999999;
+        top: 15vh;
+        left: 35vw;
         z-index: 9;
 }
 .form-block{
+    padding: 35px;
     width: 400px;
     height: 500px;
     background-color: rgba(241, 251, 255, 0.8);
     border: 3px solid rgb(154, 188, 201);
     border-radius: 5px;
     box-shadow: -5px 5px 10px black, 0 0 5px rgb(130, 157, 168) inset;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+table{
+    padding: 30px;
+    background-color: rgba(66, 105, 143, 0.582);
+    backdrop-filter: blur(8px);
+    font-size: large;
+    text-align: center;
+  
+    
+}
+tr{
+    margin: 20px 0 20px;
+}
+
+input[type=submit]{
+    height: 45px;
+    margin-bottom: 10px;
+}
+input[type=button]{
+    height: 30px;
+}
+input[type=text], input[type=number]{
+    height: 35px;
 }
