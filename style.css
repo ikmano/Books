@@ -36,13 +36,13 @@
     border-radius: 3px;
     color: rgba(255, 255, 255, 0.603);
     text-shadow: -2px -2px rgba(0, 0, 0, 0.4);
-    padding: 20px;
+    padding: 25px 45px;
     font-family: 'Poppins';
     
 }
 .header{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 h1{
     font-size: 2.6em;
@@ -85,25 +85,88 @@ th, td{
     
 }
 table{
+    margin-top: 20px;
     padding: 30px;
     background-color: rgba(66, 105, 143, 0.582);
+    background: linear-gradient(43deg, rgba(66,105,143,0.58) 9%, rgba(29,45,124,0.58) 21%, rgba(72,93,162,0.4) 36%, rgba(175,209,255,0.630987429151348) 58%, rgba(117,143,203,0.5) 83%);
     backdrop-filter: blur(8px);
     font-size: large;
-    text-align: center;
-  
-    
+    text-shadow: none;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.233) inset;
+    border-collapse: collapse;
 }
-tr{
-    margin: 20px 0 20px;
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.247);
+}
+td{
+    padding: 3px 0px;
+    padding-left: 20px;
+    font-weight: 100;
+}
+td:nth-child(-n+5):nth-child(n+3){
+    text-align: center;
+}
+th{
+    padding: 20px 0px;
+    padding-left: 20px;
+    font-weight: bold;
+}
+#popup{
+    text-shadow: none;
+    font-weight: bold;
+    color: rgb(39, 73, 145);
 }
 
 input[type=submit]{
     height: 45px;
     margin-bottom: 10px;
+    background-color: rgba(28, 60, 129, 0.836);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;    
 }
-input[type=button]{
-    height: 30px;
+label{
+    margin-bottom: 5px;
 }
 input[type=text], input[type=number]{
+    padding-left: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(7, 22, 71, 0.842);
     height: 35px;
+}
+input:focus{
+    outline: none;
+}
+.btn-cancel{
+    background-color: rgba(127, 225, 255, 0.685);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    height: 30px;
+    cursor: pointer;
+}
+#btn-del, #btn-x{
+    background: none;
+    border: none;
+    font-size: larger;
+    color: rgba(14, 29, 78, 0.774);
+    cursor: pointer;
+}
+#btn-y{
+    background: none;
+    border: none;
+    font-size: larger;
+    color: rgba(255, 255, 255, 0.884);
+    cursor: pointer;
+}
+#btn-del:hover{
+    color: rgba(255, 255, 255, 0.884);
 }

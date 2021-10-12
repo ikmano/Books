@@ -7,9 +7,6 @@ class Book {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    /*this.info = function(){
-        return title+" by "+author+", "+pages+" pages, "+read;
-    };*/
   }
 }
 
@@ -84,17 +81,21 @@ function listBooks(){
         if(i === 4){
           cell[i] = row.insertCell(i);
           //cell[i].innerHTML = '<input type="button" value=<i class="fa fa-trash"></i> onclick="deleteRow(this)">';  
-          cell[i].innerHTML = '<button type="button" onclick="deleteRow(this)"><i class="fa fa-trash"></i></button>';  
+          cell[i].innerHTML = '<button type="button" id="btn-del" onclick="deleteRow(this)"><i class="fa fa-trash"></i></button>';  
         }
-        /*else if(i === 3){
+        else if(i === 3){
           key = keys[i];
-          let btn = document.createElement('input'); 
-          btn.type = "button";
-          btn.id = 'read-btn';
-          btn.value = Library[j][key];
           cell[i] = row.insertCell(i);
-          cell[i].appendChild(btn);
-        }*/
+          
+          if(Library[j][key] === true){
+            cell[i].innerHTML = '<button type="button" class="hvr-y" id="btn-y" onclick=""><i class="fa fa-check"></i></button>';  
+          }
+          else{
+            cell[i].innerHTML = '<button type="button" class="hvr-x" id="btn-x" onclick=""><i class="fa fa-times"></i></button>';  
+          }
+          // cell[i] = row.insertCell(i);
+          // cell[i].appendChild(btn);
+        }
         else{
           cell[i] = row.insertCell(i);
           key = keys[i];
