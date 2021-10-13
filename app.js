@@ -10,11 +10,6 @@ class Book {
   }
 }
 
-Book.prototype = function readStatus(toggle){
-  if(toggle === true) this.read = false;
-  if (toggle === false) this.read = true;
-}
-
 // Open and close form to add a book
 function openForm() {
   document.getElementById("popup").style.display = "block";
@@ -88,10 +83,10 @@ function listBooks(){
           cell[i] = row.insertCell(i);
           
           if(Library[j][key] === true){
-            cell[i].innerHTML = '<button type="button" class="tableBtns btn-y" onclick=""><span class="change-icon"><i class="fa fa-check"></i><i class="fa fa-times"></i></span></button>';  
+            cell[i].innerHTML = '<button type="button" class="tableBtns btn-y" onclick="changeRead(this)"><span class="change-icon"><i class="fa fa-check"></i><i class="fa fa-times"></i></span></button>';  
           }
           else{
-            cell[i].innerHTML = '<button type="button" class="tableBtns btn-x" onclick=""><span class="change-icon"><i class="fa fa-times"></i><i class="fa fa-check"></i></span></button>';  
+            cell[i].innerHTML = '<button type="button" class="tableBtns btn-x" onclick="changeRead(this)"><span class="change-icon"><i class="fa fa-times"></i><i class="fa fa-check"></i></span></button>';  
           }
           // cell[i] = row.insertCell(i);
           // cell[i].appendChild(btn);
@@ -149,6 +144,19 @@ function deleteRow(r) {
   }
 }
 
+function changeRead(r){
+  let i = r.parentNode.parentNode.rowIndex;
+  let lib = JSON.parse(localStorage.getItem('lib'));
+  let stat = lib[i-1].read;
+  if (stat === true){
+    lib[i-1].read = false;
+  }
+  else{
+    lib[i-1].read = true;
+  }
+  localStorage.setItem('lib',JSON.stringify(lib));
+  listBooks();
+}
 
 listBooks();
 addBook();
