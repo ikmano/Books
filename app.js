@@ -81,17 +81,17 @@ function listBooks(){
         if(i === 4){
           cell[i] = row.insertCell(i);
           //cell[i].innerHTML = '<input type="button" value=<i class="fa fa-trash"></i> onclick="deleteRow(this)">';  
-          cell[i].innerHTML = '<button type="button" id="btn-del" onclick="deleteRow(this)"><i class="fa fa-trash"></i></button>';  
+          cell[i].innerHTML = '<button type="button" class="tableBtns btn-del" onclick="deleteRow(this)"><i class="fa fa-trash"></i></button>';  
         }
         else if(i === 3){
           key = keys[i];
           cell[i] = row.insertCell(i);
           
           if(Library[j][key] === true){
-            cell[i].innerHTML = '<button type="button" class="hvr-y" id="btn-y" onclick=""><i class="fa fa-check"></i></button>';  
+            cell[i].innerHTML = '<button type="button" class="tableBtns btn-y" onclick=""><span class="change-icon"><i class="fa fa-check"></i><i class="fa fa-times"></i></span></button>';  
           }
           else{
-            cell[i].innerHTML = '<button type="button" class="hvr-x" id="btn-x" onclick=""><i class="fa fa-times"></i></button>';  
+            cell[i].innerHTML = '<button type="button" class="tableBtns btn-x" onclick=""><span class="change-icon"><i class="fa fa-times"></i><i class="fa fa-check"></i></span></button>';  
           }
           // cell[i] = row.insertCell(i);
           // cell[i].appendChild(btn);
@@ -149,5 +149,7 @@ function deleteRow(r) {
   }
 }
 
+
 listBooks();
 addBook();
+

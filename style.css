@@ -153,20 +153,28 @@ input:focus{
     height: 30px;
     cursor: pointer;
 }
-#btn-del, #btn-x{
+.tableBtns{
     background: none;
     border: none;
     font-size: larger;
+    cursor: pointer;
+}
+.btn-del, .btn-x{
     color: rgba(14, 29, 78, 0.774);
-    cursor: pointer;
+   
 }
-#btn-y{
-    background: none;
-    border: none;
-    font-size: larger;
-    color: rgba(255, 255, 255, 0.884);
-    cursor: pointer;
-}
-#btn-del:hover{
+.btn-del:hover{
     color: rgba(255, 255, 255, 0.884);
 }
+.btn-y{
+    color: rgba(255, 255, 255, 0.884);
+}
+.change-icon > .fa + .fa,
+.change-icon:hover > .fa {
+  display: none;
+}
+.change-icon:hover > .fa + .fa {
+  display: inherit;
+  color: rgba(29, 29, 29, 0.5);
+}
+
