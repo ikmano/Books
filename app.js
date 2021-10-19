@@ -129,6 +129,27 @@ function addBook(){
     });
 }
 
+function addDefault(){
+      const title = 'Harry Potter';
+      const author = 'J. K. Rowling';
+      const pages = 400;
+      const read = true;
+
+      const obj = new Book(title,author,pages,read);
+
+      let lib = JSON.parse(localStorage.getItem('lib'));
+      if(lib === null){
+        lib = [];
+      }
+      lib.unshift(obj);
+      localStorage.setItem('lib',JSON.stringify(lib));
+
+      document.getElementById('form-add').reset();
+
+      let result = JSON.parse(localStorage.getItem('lib'));
+      listBooks();
+}
+
 function deleteRow(r) {
   let i = r.parentNode.parentNode.rowIndex;
   let lib = JSON.parse(localStorage.getItem('lib'));
@@ -158,6 +179,10 @@ function changeRead(r){
   listBooks();
 }
 
-listBooks();
-addBook();
+window.addEventListener('DOMContentLoaded',()=>{
+  listBooks();
+  addBook();
+})
+
+
 
