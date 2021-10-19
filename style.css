@@ -10,7 +10,9 @@
     position: relative;
     background-size: cover;
     background-position: 50% 50%;
-    background-image: url(img/books.jpg);
+    background-color: rgb(90,42,24);
+    /*background-image: url(img/books.jpg);*/
+    background-image: url(https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1290&q=80);
 }
 .bcg-cover{
     position: absolute;
