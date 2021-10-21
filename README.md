@@ -2,8 +2,8 @@
 
 This is a vrey simple library app that stores book information in local storage.
 
-It displays the books in a table with the options delete and change read status.
+It displays the books in a table with the options *delete* and *change read status*.
 
-There is a *Add Default* button that adds a default book to local storage.
+There is a **Add Default** button that adds a default book to local storage.
 
-Live preview [here](ikmano.github.io/Books)
+Live preview [here](https://ikmano.github.io/Books/)
